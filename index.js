@@ -1,3 +1,4 @@
+const fs = require('fs');
 const dns = require('dns');
 const ejs = require('ejs');
 const pinguNoot = require('pingu-noot');
@@ -18,7 +19,6 @@ const promise2 = ips.map((ip) => {
     return new Promise((resolve) => {
         const host = `${ip.name}.wonder.cx`;
         dns.lookup(host, function (err,resp) {
-            console.log(host,resp);
             ip.ip = resp;
             resolve();
         });
@@ -37,7 +37,7 @@ Promise.all([
     ejs.renderFile('./view/config.template', {
         ipList:ipList.slice(0,4)
     }, function(err, str){
-        console.log(str);
+        fs.writeFile('./shadowsocks', str);
     });
 }).catch((err) => {
     console.error(err);
