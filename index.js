@@ -32,6 +32,12 @@ Promise.all([
     const ipList = ips.sort((a,b) => {
         a.stat.avg = a.stat.avg || Math.round(Math.random() * 1000);
         b.stat.avg = b.stat.avg || Math.round(Math.random() * 1000);
+        if(!a.ip){
+            a.stat.avg = 100000;
+        }
+        if(!b.ip){
+            b.stat.avg = 100000;
+        }
         return a.stat.avg - b.stat.avg;
     });
     ejs.renderFile('./view/config.template', {
