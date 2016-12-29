@@ -43,7 +43,7 @@ Promise.all([
     ejs.renderFile('./view/config.template', {
         ipList:ipList.slice(0,4)
     }, function(err, str){
-        fs.writeFile('./shadowsocks', str);
+        fs.writeFile('./shadowsocks', str, () => {});
     });
 }).catch((err) => {
     console.error(err);
