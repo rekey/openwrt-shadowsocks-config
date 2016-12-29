@@ -1,0 +1,29 @@
+<% ipList.forEach(function(ip){ %>
+config servers
+        option auth '0'
+        option fast_open '0'
+        option timeout '60'
+        option alias '<%=ip.name%>'
+        option server '<%=ip.ip%>'
+        option server_port '<%=ip.port%>'
+        option password '<%=ip.password%>'
+        option encrypt_method '<%=ip.aes%>'
+<% }); %>
+config transparent_proxy
+        option udp_relay_server 'nil'
+        option local_port '1234'
+        option main_server 'cfg024a8f'
+
+config socks5_proxy
+        option server 'nil'
+        option local_port '1080'
+
+config port_forward
+        option local_port '5300'
+        option destination '8.8.4.4:53'
+        option server 'nil'
+
+config access_control
+        option self_proxy '1'
+        option lan_target 'SS_SPEC_WAN_AC'
+        option wan_bp_list '/root/ignore.list'

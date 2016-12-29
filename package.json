@@ -1,0 +1,23 @@
+{
+  "name": "openwrt-shadowsocks-config",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rekey/openwrt-shadowsocks-config.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rekey/openwrt-shadowsocks-config/issues"
+  },
+  "homepage": "https://github.com/rekey/openwrt-shadowsocks-config#readme",
+  "dependencies": {
+    "ejs": "^2.5.5",
+    "pingu-noot": "0.0.1"
+  }
+}
